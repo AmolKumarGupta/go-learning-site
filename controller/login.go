@@ -2,6 +2,7 @@ package controller
 
 import (
 	"amol/sample-site/config"
+	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -15,4 +16,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	data := struct{ App config.Config }{config.App}
 	tmp.ExecuteTemplate(w, "login.html", data)
+}
+
+func LoginPost(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+
+	fmt.Fprintln(w, r.FormValue("name"))
 }
