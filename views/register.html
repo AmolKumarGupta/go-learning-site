@@ -1,0 +1,59 @@
+{{ template "head" .}}
+
+<header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?q=80&w=1440')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>User Registration</h1>
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="my-5">
+                    <form id="contactForm" method="post" > 
+                        <div class="form-floating">
+                            <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required />
+                            <label for="name">Name</label>
+                            <div class="invalid-feedback">A name is required.</div>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email..." required />
+                            <label for="email">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="password" name="password" type="password" placeholder="Password" />
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="cpassword" name="cpassword" type="password" placeholder="Password" />
+                            <label for="cpassword">Confirm Password</label>
+                        </div>
+                        <br />
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                To activate this form, sign up at
+                                <br />
+                            </div>
+                        </div>
+                        <div class="d-none" id="submitErrorMessage">
+                            <div class="text-center text-danger mb-3">Error sending message!</div>
+                        </div>
+                        <button class="btn btn-primary text-uppercase" id="submitButton"
+                            type="submit">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{{ template "foot" }}
