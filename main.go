@@ -20,6 +20,7 @@ func main() {
 	r.HandleFunc("/login", controller.LoginPost).Methods("POST")
 	r.HandleFunc("/register", controller.Register).Methods("GET")
 	r.HandleFunc("/register", controller.RegisterPost).Methods("POST")
+	r.HandleFunc("/logout", controller.Logout)
 
 	fmt.Println("site running on http://localhost:8000")
 	log.Fatal(http.ListenAndServe(":8000", r))

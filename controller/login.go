@@ -14,7 +14,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := struct{ App config.Config }{config.App}
+	data := struct {
+		App      config.Config
+		AuthName string
+	}{config.App, ""}
 	tmp.ExecuteTemplate(w, "login.html", data)
 }
 
