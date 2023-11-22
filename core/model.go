@@ -13,3 +13,19 @@ func NewUser(name, email, password string) *UserModel {
 
 	return u
 }
+
+func FindByEmail(email string) (*UserModel, error) {
+	var prev []UserModel
+	err := getFile("user", &prev)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, user := range prev {
+		if user.Email == email {
+			return &user, nil
+		}
+	}
+
+	return nil, nil
+}

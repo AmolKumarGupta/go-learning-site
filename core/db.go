@@ -56,3 +56,21 @@ func Save(fileName string, data any) error {
 	file.WriteString(string(encoded))
 	return nil
 }
+
+func getFile(fileName string, prev any) error {
+	path := "storage/" + fileName + ".json"
+
+	_, err := os.Stat(path)
+	if err != nil {
+		return err
+	}
+
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+
+	json.Unmarshal(data, prev)
+
+	return nil
+}
